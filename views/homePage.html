@@ -8,15 +8,18 @@
     <style>
       input,
       button {
-        font-size: 28px;
+        font-size: 12px;
       }
     </style>
   </head>
   <body>
-    <h1>Whats Your Name?</h1>
-    <input type="text" name="" id="in1" />
-    <br />
-    <br />
-    <button id="in1">Submit</button>
+    <h1>Please Enter Correct Information</h1>
+    <form action="/" method="post">
+      <label for="username">UserName </label>
+      <input type="text" name="username" id="username" required />
+      <br />
+      <br />
+      <button>Add To DB</button>
+    </form>
   </body>
 </html>
