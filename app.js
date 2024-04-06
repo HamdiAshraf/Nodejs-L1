@@ -5,16 +5,23 @@ const mongoose = require("mongoose");
 app.use(express.urlencoded({ extended: true }));
 const MyData = require('./models/myDataSchema')
 
-
+app.set('view engine','ejs');
 
 app.get('/', (req, res) => {
-    res.sendFile('./views/homePage.html', { root: __dirname });
+    MyData.find().then((result)=>{
+        res.render('home',{myTitle:'Home Page',arr:result});
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+
+    
 })
 
 
 
 app.get('/index.html', (req, res) => {
-    res.sendFile('./views/index.html', { root: __dirname });
+    res.send(" <h1>Submitted Data Successfully😃</h1>")
 })
 app.post('/', (req, res) => {
     console.log(req.body);
